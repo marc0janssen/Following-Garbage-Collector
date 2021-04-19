@@ -1,6 +1,6 @@
 # NSMeldingen
 
-## Route alert for the Nederlandse Spoorwegen in Holland
+## Clean out the people you are following when they have been inactive for a certain period of time
 
 1. [Set up a developer account with Twitter](https://developer.twitter.com/en/portal/projects-and-apps)
 2. Create your applicatie with Twitter
