@@ -1,4 +1,4 @@
-# following garbage Collector
+# Following Garbage Collector
 
 ## Clean out the people you are following when they have been inactive for a certain period of time
 
