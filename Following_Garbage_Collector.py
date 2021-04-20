@@ -19,7 +19,7 @@ from Following_Garbage_Collector_settings import (twitter_app_key,
 
 
 # Variables
-unfollow = True
+unfollow = False
 years_inactive = 10
 
 
@@ -81,7 +81,7 @@ try:
 
                     message = user.send_message(messagePushover)
 
-        # trying not to upset the Twiiter Gods
+        # trying not to upset the Twitter Gods
         sleep(0.2)
 
 
