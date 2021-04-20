@@ -1,7 +1,7 @@
 # Name: Follow_Garbage_Collector
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-19
-# update: 2021-04-19 16:22:07
+# update: 2021-04-20 17:24:10
 
 
 # Importing the modules
