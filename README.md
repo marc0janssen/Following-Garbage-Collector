@@ -11,7 +11,7 @@
 7. Get your User Key
 8. Create a new app
 9. Get token api for the app
-10. Fill out Following_Garbage_collector_settings.py
+10. Fill out Following_Garbage_Collector_settings.py
 
 ## set these to your likings
 
