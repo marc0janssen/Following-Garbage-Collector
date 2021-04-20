@@ -15,7 +15,7 @@
 
 ## set these to your likings
 
-unfollow = False
+unfollow = False \
 years_inactive = 10
 
 2021-04-20 17:23:53
