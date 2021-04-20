@@ -75,7 +75,7 @@ try:
                     if unfollow:
                         twitter.destroy_friendship(user_id=friend)
 
-                    messagePushover = "@%s - %s\n%s\n%s" % (
+                    messagePushover = "Flushed @%s - %s\n%s\n%s" % (
                         tweet["user"]["screen_name"], tweet["user"]["name"],
                         tweetDate, tweet["text"])
 
