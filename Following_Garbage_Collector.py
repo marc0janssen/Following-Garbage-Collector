@@ -8,13 +8,19 @@
 from twython import Twython, TwythonError
 from chump import Application
 from datetime import datetime
-from time import time
+from time import time, sleep
 from Following_Garbage_Collector_settings import (twitter_app_key,
                                                   twitter_app_secret,
                                                   twitter_oauth_token,
                                                   twitter_oauth_token_secret,
                                                   pushover_user_key,
-                                                  pushover_token_api)
+                                                  pushover_token_api,
+                                                  excluded_tweeps)
+
+
+# Variables
+unfollow = True
+years_inactive = 10
 
 
 # Convert UTC times to local times
@@ -56,7 +62,7 @@ try:
             diffDate = datetime.now() - datetime_from_utc_to_local(
                 tweetdatetime_to_datetime_utc(tweet["created_at"]))
 
-            if diffDate.days > 365*10:
+            if diffDate.days >= 365*years_inactive:
 
                 tweetDate = datetime.strftime(
                     datetime_from_utc_to_local(
@@ -64,11 +70,20 @@ try:
                     "%Y-%m-%d %H:%M:%S",
                 )
 
-                message = user.send_message(
-                    tweet["user"]["screen_name"] + " - " +
-                    tweet["user"]["name"] + " - " + tweetDate)
+                if not tweet["user"]["screen_name"] in excluded_tweeps:
+
+                    if unfollow:
+                        twitter.destroy_friendship(user_id=friend)
+
+                    messagePushover = "@%s - %s\n%s\n%s" % (
+                        tweet["user"]["screen_name"], tweet["user"]["name"],
+                        tweetDate, tweet["text"])
+
+                    message = user.send_message(messagePushover)
+
+        # trying not to upset the Twiiter Gods
+        sleep(0.2)
 
 
 except TwythonError as e:
     print(e)
-    message = user.send_message("ERROR searching for tweets: " + e)

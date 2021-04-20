@@ -13,3 +13,7 @@ twitter_oauth_token_secret = "xxxxxxxxxxxxxxxxxxxxx"
 
 pushover_user_key = "xxxxxxxxxxxxxxxxxxxxx"
 pushover_token_api = "xxxxxxxxxxxxxxxxxxxxx"
+
+
+# add twitterhandle WITHOUT @
+excluded_tweeps = ['xxxxxx', 'yyyyyyy']
