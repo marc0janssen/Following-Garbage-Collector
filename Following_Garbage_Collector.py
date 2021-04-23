@@ -1,7 +1,7 @@
 # Name: Follow_Garbage_Collector
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-19
-# update: 2021-04-20 17:24:10
+# update: 2021-04-23 11:56:59
 
 
 # Importing the modules
@@ -75,11 +75,9 @@ try:
                     if unfollow:
                         twitter.destroy_friendship(user_id=friend)
 
-                    messagePushover = "Flushed @%s - %s\n%s\n%s" % (
-                        tweet["user"]["screen_name"], tweet["user"]["name"],
-                        tweetDate, tweet["text"])
-
-                    message = user.send_message(messagePushover)
+                    message = user.send_message(
+                        f'Flushed @{tweet["user"]["screen_name"]} - {tweet["user"]["name"]}\
+                        \n{tweetDate}\n{tweet["text"]}')
 
         # trying not to upset the Twitter Gods
         sleep(0.2)
