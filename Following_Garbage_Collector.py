@@ -80,8 +80,8 @@ try:
                             \n{tweetDate}\n{tweet["text"]}'
                     )
 
-        # trying not to upset the Twitter Gods
-        sleep(0.2)
+            # trying not to upset the Twitter Gods
+            sleep(2)
 
 except TwythonError as e:
     print(e)
