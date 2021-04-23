@@ -3,20 +3,20 @@
 # date: 2021-04-19
 # update: 2021-04-23 11:56:59
 
-
 # Importing the modules
 from twython import Twython, TwythonError
 from chump import Application
 from datetime import datetime
 from time import time, sleep
-from Following_Garbage_Collector_settings import (twitter_app_key,
-                                                  twitter_app_secret,
-                                                  twitter_oauth_token,
-                                                  twitter_oauth_token_secret,
-                                                  pushover_user_key,
-                                                  pushover_token_api,
-                                                  excluded_tweeps)
-
+from Following_Garbage_Collector_settings import (
+    twitter_app_key,
+    twitter_app_secret,
+    twitter_oauth_token,
+    twitter_oauth_token_secret,
+    pushover_user_key,
+    pushover_token_api,
+    excluded_tweeps,
+)
 
 # Variables
 unfollow = False
@@ -26,8 +26,8 @@ years_inactive = 10
 # Convert UTC times to local times
 def datetime_from_utc_to_local(utc_datetime):
     now_timestamp = time()
-    offset = datetime.fromtimestamp(
-        now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
+    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(
+        now_timestamp)
     return utc_datetime + offset
 
 
@@ -35,21 +35,21 @@ def datetime_from_utc_to_local(utc_datetime):
 def tweetdatetime_to_datetime_utc(tweetDate):
 
     return datetime_from_utc_to_local(
-        datetime.strptime(
-            tweetDate, "%a %b %d %H:%M:%S +0000 %Y"
-        )
-    )
+        datetime.strptime(tweetDate, "%a %b %d %H:%M:%S +0000 %Y"))
 
 
 # Setting for PushOver
 app = Application(pushover_token_api)
 user = app.get_user(pushover_user_key)
 
-
 try:
     # This time we want to set our q to search for our keywords
-    twitter = Twython(twitter_app_key, twitter_app_secret,
-                      twitter_oauth_token, twitter_oauth_token_secret)
+    twitter = Twython(
+        twitter_app_key,
+        twitter_app_secret,
+        twitter_oauth_token,
+        twitter_oauth_token_secret,
+    )
 
     friends = twitter.get_friends_ids()
 
@@ -62,7 +62,7 @@ try:
             diffDate = datetime.now() - datetime_from_utc_to_local(
                 tweetdatetime_to_datetime_utc(tweet["created_at"]))
 
-            if diffDate.days >= 365*years_inactive:
+            if diffDate.days >= 365 * years_inactive:
 
                 tweetDate = datetime.strftime(
                     datetime_from_utc_to_local(
@@ -77,11 +77,11 @@ try:
 
                     message = user.send_message(
                         f'Flushed @{tweet["user"]["screen_name"]} - {tweet["user"]["name"]}\
-                        \n{tweetDate}\n{tweet["text"]}')
+                            \n{tweetDate}\n{tweet["text"]}'
+                    )
 
         # trying not to upset the Twitter Gods
         sleep(0.2)
-
 
 except TwythonError as e:
     print(e)
