@@ -21,7 +21,7 @@ class Follow_Garbage_Collector():
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             level=logging.INFO)
 
-        self.config_file = "./config/Follow_Garbage_Collector.ini"
+        self.config_file = "/config/Follow_Garbage_Collector.ini"
 
         try:
             with open(self.config_file, "r") as f:
@@ -60,8 +60,8 @@ class Follow_Garbage_Collector():
                 f"creating example INI file."
             )
 
-            shutil.copyfile('./app/Follow_Garbage_Collector.ini.example',
-                            './config/Follow_Garbage_Collector.ini.example')
+            shutil.copyfile('/app/Follow_Garbage_Collector.ini.example',
+                            '/config/Follow_Garbage_Collector.ini.example')
             sys.exit()
 
     # Convert UTC times to local times
