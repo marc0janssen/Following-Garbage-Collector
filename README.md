@@ -11,11 +11,21 @@
 7. Get your User Key
 8. Create a new app
 9. Get token api for the app
-10. Fill out Following_Garbage_Collector_settings.py
+10. Create a directory "config" on the same level as "app" and create a Following_Garbage_Collector.ini file.
 
-## set these to your likings
+## Condig
 
-unfollow = False \
-years_inactive = 10
+    [TWITTER]
+    APP_KEY = xxxxxxxxxxxxxxx
+    APP_SECRET = xxxxxxxxxxxxxxx
+    OAUTH_TOKEN = xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx
+    OAUTH_TOKEN_SECRET = xxxxxxxxxxxxxxx
+    UNFOLLOW = OFF
+    YEARS_INACTIVE = 10
+    excluded_tweeps = xxxxxx,yyyyyyy
 
-2021-04-20 17:23:53
+    [PUSHOVER]
+    USER_KEY = xxxxxxxxxxxxxxx
+    TOKEN_API = xxxxxxxxxxxxxxx
+
+2021-05-06 14:27:38

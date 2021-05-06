@@ -1,0 +1,12 @@
+[TWITTER]
+APP_KEY = xxxxxxxxxxxxxxx
+APP_SECRET = xxxxxxxxxxxxxxx
+OAUTH_TOKEN = xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx
+OAUTH_TOKEN_SECRET = xxxxxxxxxxxxxxx
+UNFOLLOW = OFF
+YEARS_INACTIVE = 10
+excluded_tweeps = xxxxxx,yyyyyyy
+
+[PUSHOVER]
+USER_KEY = xxxxxxxxxxxxxxx
+TOKEN_API = xxxxxxxxxxxxxxx
