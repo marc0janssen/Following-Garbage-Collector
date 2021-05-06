@@ -80,8 +80,8 @@ class Follow_Garbage_Collector():
 
     def run(self):
         # Setting for PushOver
-        appPushover = Application(self.pushover_token_api)
-        userPushover = appPushover.get_user(self.pushover_user_key)
+        self.appPushover = Application(self.pushover_token_api)
+        self.userPushover = self.appPushover.get_user(self.pushover_user_key)
 
         try:
             # This time we want to set our q to search for our keywords
@@ -120,9 +120,11 @@ class Follow_Garbage_Collector():
                             if self.twitter_unfollow:
                                 self.twitter.destroy_friendship(user_id=friend)
 
-                            self.message = userPushover.send_message(
-                                f'Flushed @{tweet["user"]["screen_name"]} - {tweet["user"]["name"]}\
-                                    \n{tweetDate}\n{tweet["text"]}'
+                            self.message = self.userPushover.send_message(
+                                message=f'Flushed @'
+                                f'{tweet["user"]["screen_name"]} '
+                                f'- {tweet["user"]["name"]}\n{tweetDate}\n'
+                                f'{tweet["text"]}', sound="tugboat"
                             )
 
                     # trying not to upset the Twitter Gods
