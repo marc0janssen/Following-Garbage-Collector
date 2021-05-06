@@ -40,7 +40,7 @@ class Follow_Garbage_Collector():
                     self.config['TWITTER']['UNFOLLOW'] == "ON") else False
                 self.twitter_years_inactive = \
                     int(self.config['TWITTER']['YEARS_INACTIVE'])
-                self.exclude_tweeps = list(
+                self.twitter_excluded_tweeps = list(
                     self.config['TWITTER']['EXCLUDED_TWEEPS'].split(","))
 
                 self.pushover_user_key = self.config['PUSHOVER']['USER_KEY']
