@@ -13,7 +13,7 @@
 9. Get token api for the app
 10. Create a directory "config" on the same level as "app" and create a Following_Garbage_Collector.ini file.
 
-## Condig
+## Config
 
     [TWITTER]
     APP_KEY = xxxxxxxxxxxxxxx
