@@ -137,8 +137,7 @@ class Follow_Garbage_Collector():
                             logging.info(
                                 f'Flushed @'
                                 f'{tweet["user"]["screen_name"]} '
-                                f'- {tweet["user"]["name"]} - {tweetDate} - '
-                                f'{tweet["text"]}'
+                                f'- {tweet["user"]["name"]} - {tweetDate}'
                             )
 
                     # trying not to upset the Twitter Gods
