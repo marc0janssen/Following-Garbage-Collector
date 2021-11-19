@@ -79,6 +79,12 @@ class Follow_Garbage_Collector():
             datetime.strptime(tweetDate, "%a %b %d %H:%M:%S +0000 %Y"))
 
     def run(self):
+
+        # Log a run
+        logging.info(
+            "Executing Follow Garbage Collector."
+        )
+
         # Setting for PushOver
         self.appPushover = Application(self.pushover_token_api)
         self.userPushover = self.appPushover.get_user(self.pushover_user_key)
@@ -125,6 +131,14 @@ class Follow_Garbage_Collector():
                                 f'{tweet["user"]["screen_name"]} '
                                 f'- {tweet["user"]["name"]}\n{tweetDate}\n'
                                 f'{tweet["text"]}', sound="tugboat"
+                            )
+
+                            # Log a flush
+                            logging.info(
+                                f'Flushed @'
+                                f'{tweet["user"]["screen_name"]} '
+                                f'- {tweet["user"]["name"]}\n{tweetDate}\n'
+                                f'{tweet["text"]}'
                             )
 
                     # trying not to upset the Twitter Gods
