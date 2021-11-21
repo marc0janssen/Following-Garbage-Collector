@@ -45,6 +45,7 @@ class Follow_Garbage_Collector():
 
                 self.pushover_user_key = self.config['PUSHOVER']['USER_KEY']
                 self.pushover_token_api = self.config['PUSHOVER']['TOKEN_API']
+                self.pushover_sound = self.config['PUSHOVER']['SOUND']
 
             except KeyError:
                 logging.error(
@@ -130,7 +131,7 @@ class Follow_Garbage_Collector():
                                 message=f'Flushed @'
                                 f'{tweet["user"]["screen_name"]} '
                                 f'- {tweet["user"]["name"]}\n{tweetDate}\n'
-                                f'{tweet["text"]}', sound="tugboat"
+                                f'{tweet["text"]}', sound=self.pushover_sound
                             )
 
                             # Log a flush
