@@ -1,7 +1,7 @@
 # Name: Follow_Garbage_Collector
 # Coder: Marco Janssen (twitter @marc0janssen)
 # date: 2021-04-19
-# update: 2021-04-23 11:56:59
+# update: 2021-11-21 11:55:31
 
 # Importing the modules
 from twython import Twython, TwythonError
